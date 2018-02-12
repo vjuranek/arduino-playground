@@ -10,29 +10,24 @@ void setup() {
 void loop() {
   if (digitalRead(2)) {
     switchPressed = !switchPressed;
+    delay(1000);
   }
-  if (switchPressed == false) {
+  
+  if (!switchPressed) {
     digitalWrite(3, HIGH);
-    digitalWrite(4, LOW);
-    digitalWrite(5, LOW);
-
-    delay(1000);
-
-    digitalWrite(3, LOW);
-
-    delay(1000);
+    digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
   } else {
     digitalWrite(3, LOW);
-    
     digitalWrite(4, LOW);
-    digitalWrite(5, HIGH);
-
-    delay(1000);
-
-    digitalWrite(4, HIGH);
     digitalWrite(5, LOW);
 
     delay(1000);
+    
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(5, HIGH);
+    
+    delay(1000);
   }
-
 }
